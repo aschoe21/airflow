@@ -1,3 +1,39 @@
+Airflow 2.2.5, 2022-03-25
+-------------------------
+
+Bug Fixes
+"""""""""
+- Fix Tasks getting stuck in scheduled state (#19747)
+- Reduce DB load incurred by Stale DAG deactivation (#21399)
+- Fix race condition between triggerer and scheduler (#21316)
+- Log traceback in trigger excs (#21213)
+- Fix duplicate trigger creation race condition (#20699)
+- Set ``X-Frame-Options`` header to DENY only if ``X_FRAME_ENABLED`` is set to true. (#19491)
+- Rename ``to_delete`` to ``to_cancel`` in TriggerRunner (#20658)
+- Update custom connection field processing (#20883)
+- A trigger might use a connection; make sure we mask passwords (#21207)
+- Fix ``max_active_runs=1`` not scheduling runs when ``min_file_process_interval`` is high (#21413)
+- Fix Resources ``__eq__`` check (#21442)
+- Filter out default configs when overrides exist. (#21539)
+- Fix logging JDBC SQL error when task fails (#21540)
+- Disable ``default_pool`` delete on web ui (#21658)
+- Log exception in local executor (#21667)
+- Correctly handle multiple '=' in LocalFileSystem secrets. (#21694)
+- Fix stray ``order_by(TaskInstance.execution_date)`` (#21705)
+- Fix filesystem sensor for directories (#21729)
+- Fix graph autorefresh on page load (#21736)
+- Fix ``triggerer --capacity`` parameter (#21753)
+- Fix assignment of unassigned triggers (#21770)
+- Fix incorrect data provided to tries & landing times charts (#21928)
+
+Doc only changes
+""""""""""""""""
+- adding ``on_execute_callback`` to callbacks docs (#22362)
+- Add documentation on specifying a DB schema. (#22347)
+- Fix postgres part of pipeline example of tutorial (#21586)
+- Extend documentation for states of DAGs & tasks and update trigger rules docs (#21382)
+- DB upgrade is required when updating Airflow (#22061)
+
 Airflow 2.2.4, 2022-02-22
 -------------------------
 
